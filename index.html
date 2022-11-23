@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./animals.js"></script>
+</head>
+<body>
+    <head>
+        <h1> A jugar con Animals 🐾🐾</h1>
+    </head>
+    
+    <section class="seccion-mascota" id="secc-mascota">
+        <h2>Selecciona tu Mascota</h2>
+
+        <label for="perro" class="mascota-etiqueta">Perro 🐶</label>
+        <input type="radio" name="mascota" id='perro'>
+        
+        <label for="gato" class="mascota-etiqueta">Gato 🐱</label>
+        <input type="radio" name="mascota" id="gato">
+        
+        <label for="mono" class="mascota-etiqueta">Mono 🐵</label>
+        <input type="radio" name="mascota" id="mono">
+
+        <button id="eligirMascota" class="buttonElegir">Elegir</button>
+    </section>
+    
+    <div id="seleccionaAtaque" class="seccion-ataque">
+       
+        <h2>Selecciona tu ataque</h2>
+        <section>
+            <button id="butonMordida" class="button-ataque">Mordida <div class=""></div></button>
+            <button id="butonGarra" class="button-ataque">Garra 🐾</button>
+            <button id="butonPatada" class="button-ataque">Patada</button>
+        </section>
+    
+        <section class="ataque-info">
+            <p class="info-jugador">Tu mascota es: </br><span id="mascotaNombre" class="info-mascota"></span> y tiene <span id="vidasJugador" class="info-vidas">3</span> vidas</p>
+            
+            <p class="info-contrario">Mascota del contrario es: <span id="mascotaContrario" class="info-mascota"></span> y tiene <span id="vidasContrario" class="info-vidas">3</span> vidas</p>
+        </section>
+    
+    </div>
+    
+    <section id="resultado">
+        
+        <h2>Resultados</h2>
+        <p>Atacaste con: <span id="spanAtaqueJugador"></span></p>
+        <p>Y el Contrario atacó con: <span id="spanAtaqueContrario"></span></p>
+
+    </section>
+
+
+    <section id='mensajeFinal' class = 'modalFinal'>
+        
+    </section>
+
+    <section>
+        <button id="butonReiniciar" class="buttonElegir">Reiniciar</button>
+    </section>
+    
+   
+</body>
+</html>
