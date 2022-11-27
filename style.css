@@ -10,23 +10,63 @@ h1{
     margin: 50px auto;
     text-align: center;
     color: rgb(67, 142, 255);
+    font-size: 36px;
     font-weight: bold;
-    border-radius: 50%;
+   
 }
 
 h2{
     margin: 10px auto;
+    font-size: 28px;
+    font-weight: bold;
 }
 
+
 .seccion-mascota{
-    display: grid;   
+    display: flex;   
+    flex-direction: column;
+    align-items: center;
+     
+}
+.mascota-container{
+    display: flex;
     justify-content: center;
+
 }
 
 .mascota-etiqueta{
-    margin: 10px auto 10px;
+    display: flex;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 15px;
+    border: 2px solid white;
+    border-radius: 15%;
 }
 
+.mascota-etiqueta:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 15px;   
+}
+
+.img-perro{
+    background-image: url(./assets/perros.png);
+    background-size: cover;
+}
+
+.img-gato{
+    background-image: url(./assets/gatos.png);
+
+}
+
+.img-gorila{
+    background-image: url(./assets/gorilas.png);
+   
+}
+.check-mascota{
+    display: none
+
+}
 .buttonElegir{
     width: 100px;
     height: 40px;
@@ -40,14 +80,13 @@ h2{
 .buttonElegir:hover{
     cursor: pointer;
     background-color:rgb(67, 142, 255);
+    box-shadow: 5px 5px 15px 15px;   
 }
 
 .seccion-ataque{
     width: 80%;
     height: auto;
-    margin: auto;
-    border: groove 5px rgb(67, 142, 255) ;
-    border-radius: 10px;
+    margin: 12px auto;
     text-align: center;
 }
 .button-ataque{
@@ -67,17 +106,23 @@ h2{
 }
 .ataque-info{
     display: flex;
+    width: 100%;
+    height: auto;
+    background-color: white;
 }
-.info-jugador{
-    background-color: cadetblue;
-    margin: 0;
+
+.ataque--info-jugador{
     width: 50%;
+    height: auto;
+}
+
+.info-jugador{
+    margin: 0;
+    
 }
 .info-contrario{
-    background-color: cornflowerblue;
     margin: 0;
-    width: 50%;
-
+   
 }
 .info-mascota{
     background-color: rgb(7, 1, 88);

@@ -24,8 +24,9 @@ function elegirMascotaJugador(){
     const mascotaMono = document.getElementById('mono')
     const spanMascotaJugador = document.getElementById('mascotaNombre')
   
+  
     if (mascotaPerro.checked){
-        spanMascotaJugador.innerHTML = 'Perro'
+        spanMascotaJugador.innerHTML = 'Perro';
     
     }else if (mascotaGato.checked){
         spanMascotaJugador.innerHTML = 'Gato'

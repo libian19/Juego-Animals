@@ -16,16 +16,20 @@
     <section class="seccion-mascota" id="secc-mascota">
         <h2>Selecciona tu Mascota</h2>
 
-        <label for="perro" class="mascota-etiqueta">Perro 🐶</label>
-        <input type="radio" name="mascota" id='perro'>
-        
-        <label for="gato" class="mascota-etiqueta">Gato 🐱</label>
-        <input type="radio" name="mascota" id="gato">
-        
-        <label for="mono" class="mascota-etiqueta">Mono 🐵</label>
-        <input type="radio" name="mascota" id="mono">
-
+        <div class="mascota-container">
+            <label for="perro" class="mascota-etiqueta img-perro">Firulay</label>
+            <input type="radio" name="mascota" id='perro' class="check-mascota">
+           
+            
+            <label for="gato" class="mascota-etiqueta img-gato">Michiii</label>
+            <input type="radio" name="mascota" id="gato" class="check-mascota">
+            
+            <label for="mono" class="mascota-etiqueta img-gorila">Koong</label>
+            <input type="radio" name="mascota" id="mono" class="check-mascota">
+        </div>
+       
         <button id="eligirMascota" class="buttonElegir">Elegir</button>
+ 
     </section>
     
     <div id="seleccionaAtaque" class="seccion-ataque">
@@ -38,9 +42,14 @@
         </section>
     
         <section class="ataque-info">
-            <p class="info-jugador">Tu mascota es: </br><span id="mascotaNombre" class="info-mascota"></span> y tiene <span id="vidasJugador" class="info-vidas">3</span> vidas</p>
-            
-            <p class="info-contrario">Mascota del contrario es: <span id="mascotaContrario" class="info-mascota"></span> y tiene <span id="vidasContrario" class="info-vidas">3</span> vidas</p>
+            <div class="ataque--info-jugador">
+                <p class="info-jugador">Tu mascota es: </br> <span id="mascotaNombre" class="info-mascota"></span>  </br> </br> Tiene <span id="vidasJugador" class="info-vidas">3</span> vidas</p>
+            </div>
+           
+            <div class="ataque--info-jugador">
+                <p class="info-contrario">Mascota del contrario es:  </br>  <span id="mascotaContrario" class="info-mascota"></span>  </br> </br> Tiene <span id="vidasContrario" class="info-vidas">3</span> vidas</p>
+            </div>
+          
         </section>
     
     </div>
