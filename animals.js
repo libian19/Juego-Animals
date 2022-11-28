@@ -22,21 +22,26 @@ function elegirMascotaJugador(){
     const mascotaPerro = document.getElementById('perro')    
     const mascotaGato = document.getElementById('gato')
     const mascotaMono = document.getElementById('mono')
-    const spanMascotaJugador = document.getElementById('mascotaNombre')
-  
-  
-    if (mascotaPerro.checked){
-        spanMascotaJugador.innerHTML = 'Perro';
+    const imgMascotaJugador = document.getElementsByClassName('mascota-ataque-jugador')
+    console.log(typeof(imgMascotaJugador))
+    const imagen1 = document.createElement('img');
     
+    if (mascotaPerro.checked){
+        imagen1.src = "./assets/perros.png";
+
     }else if (mascotaGato.checked){
-        spanMascotaJugador.innerHTML = 'Gato'
+        imagen1.src = "./assets/gatos.png";
     
     }else if (mascotaMono.checked){
-        spanMascotaJugador.innerHTML = 'Mono'
+        imagen1.src = "./assets/gorilas.png";
+
     }else{
         alert('Debes seleccionar una mascota')
     }
- 
+    
+
+    imgMascotaJugador.insertAdjacentHTML("beforeend",`<img src=${imagen1} alt=${imagen1}>`);
+
     //Para seleccionar la mascota contraria
     elegirMascotaContrario();
 
@@ -50,18 +55,19 @@ function elegirMascotaJugador(){
 function elegirMascotaContrario(){
    
     let mascotaContrario = aleatorio(1, 3)
-    let spanMascotaContrario = document.getElementById('mascotaContrario')
+    const imgMascotaContrario = document.getElementsByClassName('mascota-ataque-contrario')
+    const imagen2 = document.createElement('img');
 
     if (mascotaContrario === 1){
-        spanMascotaContrario.innerHTML = 'Perro'
-    
+        imagen2.src = "./assets/perros.png";
+ 
     }else if (mascotaContrario === 2){
-        spanMascotaContrario.innerHTML = 'Gato'
+        imagen2.src = "./assets/gatos.png";
     
     }else if (mascotaContrario === 3) {
-        spanMascotaContrario.innerHTML = 'Mono'
+        imagen2.src = "./assets/gorilas.png";
     }
-
+    imgMascotaContrario.insertAdjacentHTML("beforeend",`<img src=${imagen2} alt=${imagen2}>`);;
 }
 
 function elegirAtaqueContrario(){

@@ -111,9 +111,10 @@ h2{
     background-color: white;
 }
 
-.ataque--info-jugador{
+.ataque--info-jugador, .ataque--info-contrario{
     width: 50%;
     height: auto;
+    margin: 0;
 }
 
 .info-jugador{
