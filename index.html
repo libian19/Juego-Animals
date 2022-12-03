@@ -43,16 +43,14 @@
     
         <section class="ataque-info">
             
-            <div class="ataque-info-jugador">Tu mascota es: </br>    
-                <div class="mascota-ataque-jugador"></div>    
-                
+            <div class="ataque--info-jugador">Tu mascota</br>
+            
                 <p>Tienes <span id="vidasJugador" class="info-vidas">3</span> vidas</p>
             
             </div>
             
-            <div class="ataque--info-contrario">Mascota del contrario es:</br>
-                <div class="mascota-ataque-contrario"></div>    
- 
+            <div class="ataque--info-contrario">Mascota del contrario</br>
+               
                 <p>Tiene <span id="vidasContrario" class="info-vidas">3</span> vidas</p>
  
             </div>
@@ -63,20 +61,25 @@
     
     <section id="resultado">
         
-        <h2>Resultados</h2>
-        <p>Atacaste con: <span id="spanAtaqueJugador"></span></p>
-        <p>Y el Contrario atacó con: <span id="spanAtaqueContrario"></span></p>
+        <h2>A luchar !!</h2>
+        <div class="resultado-ataques">
+            <p id="spanAtaqueJugador"></p>
+            <p id="spanAtaqueContrario"></p>
+        </div>
 
     </section>
 
 
-    <section id='mensajeFinal' class = 'modalFinal'>
+    <div class="mensaje--final-reiniciar">
+        <section id='mensajeFinal' class = 'modalFinal'>
         
-    </section>
-
-    <section>
-        <button id="butonReiniciar" class="buttonElegir">Reiniciar</button>
-    </section>
+        </section>
+    
+        <section>
+            <button id="butonReiniciar" class="buttonElegir">Reiniciar</button>
+        </section>
+    </div>
+   
     
    
 </body>

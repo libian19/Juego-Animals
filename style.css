@@ -4,12 +4,14 @@ html{
 }
 body{
     background-color: rgba(50, 115, 220, 0.3);
+    
 }
+
 h1{
-    width: 80%;
+    
     margin: 50px auto;
     text-align: center;
-    color: rgb(67, 142, 255);
+    color: rgb(7, 1, 88);
     font-size: 36px;
     font-weight: bold;
    
@@ -21,7 +23,14 @@ h2{
     font-weight: bold;
 }
 
+label{
+    font-size: 18px;
+    color: white;
+}
 
+p{
+    margin: 5px 0 5px 0; 
+}
 .seccion-mascota{
     display: flex;   
     flex-direction: column;
@@ -40,13 +49,18 @@ h2{
     height: 150px;
     padding: 10px;
     margin: 15px;
+    background-color: #22577E;
     border: 2px solid white;
     border-radius: 15%;
 }
 
 .mascota-etiqueta:hover{
     cursor: pointer;
-    box-shadow: 5px 5px 15px;   
+    box-shadow: 10px 10px 5px black;   
+}
+
+.mascota-etiqueta:active{
+    background-color: bisque;
 }
 
 .img-perro{
@@ -80,12 +94,12 @@ h2{
 .buttonElegir:hover{
     cursor: pointer;
     background-color:rgb(67, 142, 255);
-    box-shadow: 5px 5px 15px 15px;   
+    box-shadow: 5px 5px 10px 5px;   
 }
 
 .seccion-ataque{
-    width: 80%;
-    height: auto;
+    width: 600px;
+    height: 300px;
     margin: 12px auto;
     text-align: center;
 }
@@ -107,8 +121,8 @@ h2{
 .ataque-info{
     display: flex;
     width: 100%;
-    height: auto;
-    background-color: white;
+    height: 100px;
+    
 }
 
 .ataque--info-jugador, .ataque--info-contrario{
@@ -117,19 +131,43 @@ h2{
     margin: 0;
 }
 
-.info-jugador{
-    margin: 0;
+.mascota-ataque{
+    width: 120px;
     
 }
-.info-contrario{
-    margin: 0;
-   
-}
-.info-mascota{
-    background-color: rgb(7, 1, 88);
-    color: white;
-}
+
 .info-vidas{
-    background-color: rgb(7, 1, 88);
-    color: white;
+    color:rgb(7, 1, 88);
+    font-size: 24px;
+}
+#resultado{
+    flex-direction: column;
+    text-align: center;
+
+}
+.resultado-ataques{
+    display: flex;
+    justify-content: space-around;
+}
+.resultado-ataques p{
+    color:rgb(7, 1, 88);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mensaje--final-reiniciar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 254px;
+    left: 20%;
+    width: 70%;
+    height: 30%;
+    background-color: #22577E;
+    box-shadow:  5px 5px 15px; 
+    border-radius: 20px;
+    color: white; 
+    
 }

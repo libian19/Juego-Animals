@@ -15,33 +15,34 @@ function iniciarJuego(){
 
     let reiniciarPartida = document.getElementById('butonReiniciar');
     reiniciarPartida.style.display = 'none'
+
+    let modal = document.querySelector('.mensaje--final-reiniciar');
+    modal.style.display = 'none'
 }
 
 function elegirMascotaJugador(){
    
+    let imgMascotaJugador = document.createElement('img')
     const mascotaPerro = document.getElementById('perro')    
     const mascotaGato = document.getElementById('gato')
     const mascotaMono = document.getElementById('mono')
-    const imgMascotaJugador = document.getElementsByClassName('mascota-ataque-jugador')
-    console.log(typeof(imgMascotaJugador))
-    const imagen1 = document.createElement('img');
-    
+
     if (mascotaPerro.checked){
-        imagen1.src = "./assets/perros.png";
+        imgMascotaJugador.src = "./assets/perros.png"
 
-    }else if (mascotaGato.checked){
-        imagen1.src = "./assets/gatos.png";
-    
+    }else if (mascotaGato.checked){ 
+        imgMascotaJugador.src = "./assets/gatos.png"
+        
     }else if (mascotaMono.checked){
-        imagen1.src = "./assets/gorilas.png";
-
+        imgMascotaJugador.src = "./assets/gorilas.png"
+   
     }else{
-        alert('Debes seleccionar una mascota')
+        alert('Elige una mascota')
     }
+ 
+    imgMascotaJugador.className = 'mascota-ataque' 
+    document.querySelector(".ataque--info-jugador").appendChild(imgMascotaJugador)
     
-
-    imgMascotaJugador.insertAdjacentHTML("beforeend",`<img src=${imagen1} alt=${imagen1}>`);
-
     //Para seleccionar la mascota contraria
     elegirMascotaContrario();
 
@@ -55,19 +56,21 @@ function elegirMascotaJugador(){
 function elegirMascotaContrario(){
    
     let mascotaContrario = aleatorio(1, 3)
-    const imgMascotaContrario = document.getElementsByClassName('mascota-ataque-contrario')
-    const imagen2 = document.createElement('img');
-
+    let imgMascotaContrario = document.createElement('img')
+     
     if (mascotaContrario === 1){
-        imagen2.src = "./assets/perros.png";
+        imgMascotaContrario.src = "/assets/perros.png";
  
     }else if (mascotaContrario === 2){
-        imagen2.src = "./assets/gatos.png";
+        imgMascotaContrario.src = "/assets/gatos.png";
     
     }else if (mascotaContrario === 3) {
-        imagen2.src = "./assets/gorilas.png";
+        imgMascotaContrario.src = "/assets/gorilas.png";
     }
-    imgMascotaContrario.insertAdjacentHTML("beforeend",`<img src=${imagen2} alt=${imagen2}>`);;
+
+    imgMascotaContrario.className = 'mascota-ataque' 
+    document.querySelector(".ataque--info-contrario").appendChild(imgMascotaContrario)
+
 }
 
 function elegirAtaqueContrario(){
@@ -127,7 +130,7 @@ function seleccionarAtaque(){
 
 function combate(){
     let resultados = document.getElementById('resultado');
-    resultados.style.display = 'block'
+    resultados.style.display = 'flex'
 
     let spanVidasJugador = document.getElementById('vidasJugador');
     let spanVidasContrario = document.getElementById('vidasContrario');
@@ -169,6 +172,9 @@ function valorarVidas(){
 }
 
 function crearMensajeFinal(msj){
+    let modal = document.querySelector('.mensaje--final-reiniciar');
+    modal.style.display = 'flex'
+    
     let theEnd = document.getElementById('mensajeFinal')
     
     let theEndMsj = document.createElement('div')
@@ -184,9 +190,7 @@ function crearMensajeFinal(msj){
     let ataquePatadaJugador = document.getElementById('butonPatada')
     ataquePatadaJugador.disabled = true
  
-    let reiniciarPartida = document.getElementById('butonReiniciar');
-    reiniciarPartida.style.display = 'block'
-    reiniciarPartida.addEventListener('click', reiniciarJuego);
+    reiniciarJuego()
     
 }
 
@@ -199,7 +203,19 @@ function crearMensaje(msj){
 }
 
 function reiniciarJuego(){
-    location.reload()
+
+    let reiniciarPartida = document.getElementById('butonReiniciar');
+    reiniciarPartida.style.display = 'block'
+
+    let opacarBody = document.querySelector('body')
+    opacarBody.style.backgroundColor= 'rgba(0,0,0,0.5)'
+    
+    reiniciarPartida.addEventListener('click', onReiniciarJuego);
+
+        function onReiniciarJuego(){
+            location.reload()
+        }
+    
 }
 
 function aleatorio(min, max) {
