@@ -8,13 +8,11 @@ body{
 }
 
 h1{
-    
     margin: 50px auto;
     text-align: center;
     color: rgb(7, 1, 88);
     font-size: 36px;
     font-weight: bold;
-   
 }
 
 h2{
@@ -26,18 +24,26 @@ h2{
 label{
     font-size: 18px;
     color: white;
+    
 }
 
 p{
     margin: 5px 0 5px 0; 
 }
+
+img{
+    margin: -23px 0 0 15px;
+    background-size: contain;
+    width: 120px;
+}
+
 .seccion-mascota{
     display: flex;   
     flex-direction: column;
     align-items: center;
      
 }
-.mascota-container{
+.mascota-container-flex{
     display: flex;
     justify-content: center;
 
@@ -45,10 +51,11 @@ p{
 
 .mascota-etiqueta{
     display: flex;
+    flex-direction: column;
     width: 150px;
     height: 150px;
-    padding: 10px;
-    margin: 15px;
+    padding: 5px;
+    margin: 5px;
     background-color: #22577E;
     border: 2px solid white;
     border-radius: 15%;
@@ -59,24 +66,12 @@ p{
     box-shadow: 10px 10px 5px black;   
 }
 
-.mascota-etiqueta:active{
-    background-color: bisque;
-}
+input:checked + label {
+    background-color: rgb(67, 142, 255);
+  }
 
-.img-perro{
-    background-image: url(./assets/perros.png);
-    background-size: cover;
-}
 
-.img-gato{
-    background-image: url(./assets/gatos.png);
 
-}
-
-.img-gorila{
-    background-image: url(./assets/gorilas.png);
-   
-}
 .check-mascota{
     display: none
 
@@ -133,6 +128,7 @@ p{
 
 .mascota-ataque{
     width: 120px;
+    margin-top: 5px;
     
 }
 
@@ -162,7 +158,7 @@ p{
     align-items: center;
     position: fixed;
     top: 254px;
-    left: 20%;
+    left: 15%;
     width: 70%;
     height: 30%;
     background-color: #22577E;
@@ -170,4 +166,10 @@ p{
     border-radius: 20px;
     color: white; 
     
+}
+
+@media (max-width: 620px){
+    .mascota-container{
+        flex-direction: column;
+    }
 }

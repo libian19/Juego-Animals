@@ -1,51 +1,126 @@
+const seccionAtaque = document.getElementById('seleccionaAtaque');
+seccionAtaque.style.display = 'none';
+
+const resultados = document.getElementById('resultado');
+resultados.style.display = 'none';
+
+const reiniciarPartida = document.getElementById('butonReiniciar');
+reiniciarPartida.style.display = 'none';
+
+const modal = document.querySelector('.mensaje--final-reiniciar');
+modal.style.display = 'none';
+
+const opacarBody = document.querySelector('body')
+
+
+const mascotaJugador = document.getElementById('eligirMascota');
+//const mascotaPerro = document.getElementById('perro')    
+//const mascotaGato = document.getElementById('gato')
+//const mascotaMono = document.getElementById('mono')
+
+const ataqueMordidaJugador = document.getElementById('butonMordida')
+const ataqueGarraJugador = document.getElementById('butonGarra')
+const ataquePatadaJugador = document.getElementById('butonPatada') 
+
+let spanVidasJugador = document.getElementById('vidasJugador');
+let spanVidasContrario = document.getElementById('vidasContrario');
+
+let mascotas = [];
+let displayMascotas;
+let inputPerro;
+let inputGato;
+let inputMono;
 let ataqueJugador;
 let ataqueContrario;
 let vidasJugador = 3;
 let vidasContrario = 3;
 
+class Mascota{
+    constructor (nombre, imagen, vidas){
+        this.nombre = nombre,
+        this.imagen = imagen,
+        this.vidas = vidas,
+        this.ataques = []
+    }
+}
+
+let perro = new Mascota ('Firulay', './assets/perros.png' , 3);
+let gato = new Mascota ('Michii', './assets/gatos.png' , 3);
+let mono = new Mascota ('Koong', './assets/gorilas.png' , 3);
+
+perro.ataques.push(
+    {nombre: 'Mordida', id: 'butonMordida'},
+    {nombre: 'Mordida', id: 'butonMordida'},
+    {nombre: 'Mordida', id: 'butonMordida'},
+    {nombre: 'Patada', id: 'butonPatada'},
+    {nombre: 'Garra', id: 'butonGarra'},
+)
+
+gato.ataques.push(
+    {nombre: 'Garra', id: 'butonGarra'},
+    {nombre: 'Garra', id: 'butonGarra'},
+    {nombre: 'Garra', id: 'butonGarra'},
+    {nombre: 'Mordida', id: 'butonMordida'},
+    {nombre: 'Patada', id: 'butonPatada'},
+)
+
+mono.ataques.push(
+    {nombre: 'Patada', id: 'butonPatada'},
+    {nombre: 'Patada', id: 'butonPatada'},
+    {nombre: 'Patada', id: 'butonPatada'},
+    {nombre: 'Garra', id: 'butonGarra'}, 
+    {nombre: 'Mordida', id: 'butonMordida'}, 
+)
+
+mascotas.push(perro, gato, mono)
+
 function iniciarJuego(){
-    let seccionAtaque = document.getElementById('seleccionaAtaque');
-    seccionAtaque.style.display = 'none';
+    let contenedorMascotas = document.getElementById('mascota-container');
 
-    let resultados = document.getElementById('resultado');
-    resultados.style.display = 'none'
+    mascotas.forEach((mascota) => { 
+        displayMascotas= `
+        <input type="radio" name="mascota" id=${mascota.nombre} class="check-mascota"/>
+        <label for=${mascota.nombre} class="mascota-etiqueta">
+            <p>${mascota.nombre}</p>
+            <img src=${mascota.imagen} alt=${mascota.nombre}/>
+        </label>`
 
-    let mascotaJugador = document.getElementById('eligirMascota');
+        contenedorMascotas.innerHTML += displayMascotas;
+
+        inputPerro = document.getElementById('Firulay');
+        inputGato = document.getElementById('Michii');
+        inputMono = document.getElementById('Koong');
+
+    })
     mascotaJugador.addEventListener('click', elegirMascotaJugador);
-
-    let reiniciarPartida = document.getElementById('butonReiniciar');
-    reiniciarPartida.style.display = 'none'
-
-    let modal = document.querySelector('.mensaje--final-reiniciar');
-    modal.style.display = 'none'
 }
 
 function elegirMascotaJugador(){
-   
-    let imgMascotaJugador = document.createElement('img')
-    const mascotaPerro = document.getElementById('perro')    
-    const mascotaGato = document.getElementById('gato')
-    const mascotaMono = document.getElementById('mono')
+  
+    let mascotaSeleccion
 
-    if (mascotaPerro.checked){
-        imgMascotaJugador.src = "./assets/perros.png"
+    if (inputPerro.checked){
+        mascotaSeleccion = mascotas.filter(mascota => mascota.nombre === inputPerro.id)
 
-    }else if (mascotaGato.checked){ 
-        imgMascotaJugador.src = "./assets/gatos.png"
+    }else if (inputGato.checked){ 
+        mascotaSeleccion = mascotas.filter(mascota => mascota.nombre === inputGato.id)
         
-    }else if (mascotaMono.checked){
-        imgMascotaJugador.src = "./assets/gorilas.png"
+    }else if (inputMono.checked){
+        mascotaSeleccion = mascotas.filter(mascota => mascota.nombre === inputMono.id)
    
     }else{
         alert('Elige una mascota')
     }
- 
+
+    let imgMascotaJugador = document.createElement('img')
+    imgMascotaJugador.src = mascotaSeleccion[0].imagen 
     imgMascotaJugador.className = 'mascota-ataque' 
+
     document.querySelector(".ataque--info-jugador").appendChild(imgMascotaJugador)
     
     //Para seleccionar la mascota contraria
     elegirMascotaContrario();
-
+    
     let seccMascota = document.getElementById('secc-mascota');
     seccMascota.style.display = 'none'
     
@@ -55,17 +130,17 @@ function elegirMascotaJugador(){
 
 function elegirMascotaContrario(){
    
-    let mascotaContrario = aleatorio(1, 3)
+    let mascotaContrario = aleatorio(0, mascotas.length-1)
     let imgMascotaContrario = document.createElement('img')
      
     if (mascotaContrario === 1){
-        imgMascotaContrario.src = "/assets/perros.png";
+        imgMascotaContrario.src = perro.imagen;
  
     }else if (mascotaContrario === 2){
-        imgMascotaContrario.src = "/assets/gatos.png";
+        imgMascotaContrario.src = gato.imagen;
     
     }else if (mascotaContrario === 3) {
-        imgMascotaContrario.src = "/assets/gorilas.png";
+        imgMascotaContrario.src = mono.imagen;
     }
 
     imgMascotaContrario.className = 'mascota-ataque' 
@@ -94,17 +169,14 @@ function elegirAtaqueContrario(){
 
 function seleccionarAtaque(){
     
-    let seccionAtaque = document.getElementById('seleccionaAtaque')
     seccionAtaque.style.display = 'block'
-    let ataqueMordidaJugador = document.getElementById('butonMordida')
-    ataqueMordidaJugador.addEventListener('click', ataqueMordida)
-    let ataqueGarraJugador = document.getElementById('butonGarra')
-    ataqueGarraJugador.addEventListener('click', ataqueGarra)
-    let ataquePatadaJugador = document.getElementById('butonPatada')
-    ataquePatadaJugador.addEventListener('click', ataquePatada)
-    let spanAtaqueJugador = document.getElementById('spanAtaqueJugador')
-   
 
+    ataqueMordidaJugador.addEventListener('click', ataqueMordida)
+    ataqueGarraJugador.addEventListener('click', ataqueGarra)
+    ataquePatadaJugador.addEventListener('click', ataquePatada)
+  
+    let spanAtaqueJugador = document.getElementById('spanAtaqueJugador')
+ 
     function ataqueMordida(){
         ataqueJugador = 'MORDIDA';
         spanAtaqueJugador.innerHTML = ataqueJugador
@@ -129,11 +201,8 @@ function seleccionarAtaque(){
 }
 
 function combate(){
-    let resultados = document.getElementById('resultado');
+    
     resultados.style.display = 'flex'
-
-    let spanVidasJugador = document.getElementById('vidasJugador');
-    let spanVidasContrario = document.getElementById('vidasContrario');
 
     if(ataqueJugador == ataqueContrario){
         crearMensaje("EMPATE...INTENTA DE NUEVO")
@@ -172,7 +241,7 @@ function valorarVidas(){
 }
 
 function crearMensajeFinal(msj){
-    let modal = document.querySelector('.mensaje--final-reiniciar');
+  
     modal.style.display = 'flex'
     
     let theEnd = document.getElementById('mensajeFinal')
@@ -181,13 +250,9 @@ function crearMensajeFinal(msj){
     theEndMsj.innerHTML = msj
     theEnd.appendChild(theEndMsj)
 
-    let mascotaJugador = document.getElementById('eligirMascota')
     mascotaJugador.disabled = true
-    let ataqueMordidaJugador = document.getElementById('butonMordida')
     ataqueMordidaJugador.disabled = true
-    let ataqueGarraJugador = document.getElementById('butonGarra')
     ataqueGarraJugador.disabled = true
-    let ataquePatadaJugador = document.getElementById('butonPatada')
     ataquePatadaJugador.disabled = true
  
     reiniciarJuego()
@@ -203,19 +268,14 @@ function crearMensaje(msj){
 }
 
 function reiniciarJuego(){
-
-    let reiniciarPartida = document.getElementById('butonReiniciar');
     reiniciarPartida.style.display = 'block'
-
-    let opacarBody = document.querySelector('body')
     opacarBody.style.backgroundColor= 'rgba(0,0,0,0.5)'
-    
     reiniciarPartida.addEventListener('click', onReiniciarJuego);
+  
+}
 
-        function onReiniciarJuego(){
-            location.reload()
-        }
-    
+function onReiniciarJuego(){
+    location.reload()
 }
 
 function aleatorio(min, max) {

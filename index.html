@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animals</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./animals.js"></script>
+   
 </head>
 <body>
     <head>
@@ -16,16 +16,8 @@
     <section class="seccion-mascota" id="secc-mascota">
         <h2>Selecciona tu Mascota</h2>
 
-        <div class="mascota-container">
-            <label for="perro" class="mascota-etiqueta img-perro">Firulay</label>
-            <input type="radio" name="mascota" id='perro' class="check-mascota">
+        <div id="mascota-container" class="mascota-container-flex">
         
-            
-            <label for="gato" class="mascota-etiqueta img-gato">Michiii</label>
-            <input type="radio" name="mascota" id="gato" class="check-mascota">
-            
-            <label for="mono" class="mascota-etiqueta img-gorila">Koong</label>
-            <input type="radio" name="mascota" id="mono" class="check-mascota">
         </div>
        
         <button id="eligirMascota" class="buttonElegir">Elegir</button>
@@ -46,7 +38,7 @@
             <div class="ataque--info-jugador">Tu mascota</br>
             
                 <p>Tienes <span id="vidasJugador" class="info-vidas">3</span> vidas</p>
-            
+                
             </div>
             
             <div class="ataque--info-contrario">Mascota del contrario</br>
@@ -80,7 +72,7 @@
         </section>
     </div>
    
-    
+    <script src="./animals.js"></script>
    
 </body>
 </html>
