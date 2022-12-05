@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+    <link rel="stylesheet" href="./style.css">
+   
+</head>
+<body>
+    <head>
+        <h1> A jugar con Animals 🐾🐾</h1>
+    </head>
+    
+    <section class="seccion-mascota" id="secc-mascota">
+        <h2>Selecciona tu Mascota</h2>
+
+        <div id="mascota-container" class="mascota-container-flex">
+        
+        </div>
+       
+        <button id="eligirMascota" class="buttonElegir">Elegir</button>
+ 
+    </section>
+    
+    <div id="seleccionaAtaque" class="seccion-ataque">
+       
+        <h2>Selecciona tu ataque</h2>
+        <section>
+            <button id="butonMordida" class="button-ataque">Mordida <div class=""></div></button>
+            <button id="butonGarra" class="button-ataque">Garra 🐾</button>
+            <button id="butonPatada" class="button-ataque">Patada</button>
+        </section>
+    
+        <section class="ataque-info">
+            
+            <div class="ataque--info-jugador">Tu mascota</br>
+            
+                <p>Tienes <span id="vidasJugador" class="info-vidas">3</span> vidas</p>
+                
+            </div>
+            
+            <div class="ataque--info-contrario">Mascota del contrario</br>
+               
+                <p>Tiene <span id="vidasContrario" class="info-vidas">3</span> vidas</p>
+ 
+            </div>
+          
+        </section>
+    
+    </div>
+    
+    <section id="resultado">
+        
+        <h2>A luchar !!</h2>
+        <div class="resultado-ataques">
+            <p id="spanAtaqueJugador"></p>
+            <p id="spanAtaqueContrario"></p>
+        </div>
+
+    </section>
+
+
+    <div class="mensaje--final-reiniciar">
+        <section id='mensajeFinal' class = 'modalFinal'>
+        
+        </section>
+    
+        <section>
+            <button id="butonReiniciar" class="buttonElegir">Reiniciar</button>
+        </section>
+    </div>
+   
+    <script src="./animals.js"></script>
+   
+</body>
+</html>

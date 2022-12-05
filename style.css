@@ -1,0 +1,175 @@
+html{
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    background-color: rgba(50, 115, 220, 0.3);
+    
+}
+
+h1{
+    margin: 50px auto;
+    text-align: center;
+    color: rgb(7, 1, 88);
+    font-size: 36px;
+    font-weight: bold;
+}
+
+h2{
+    margin: 10px auto;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+label{
+    font-size: 18px;
+    color: white;
+    
+}
+
+p{
+    margin: 5px 0 5px 0; 
+}
+
+img{
+    margin: -23px 0 0 15px;
+    background-size: contain;
+    width: 120px;
+}
+
+.seccion-mascota{
+    display: flex;   
+    flex-direction: column;
+    align-items: center;
+     
+}
+.mascota-container-flex{
+    display: flex;
+    justify-content: center;
+
+}
+
+.mascota-etiqueta{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #22577E;
+    border: 2px solid white;
+    border-radius: 15%;
+}
+
+.mascota-etiqueta:hover{
+    cursor: pointer;
+    box-shadow: 10px 10px 5px black;   
+}
+
+input:checked + label {
+    background-color: rgb(67, 142, 255);
+  }
+
+
+
+.check-mascota{
+    display: none
+
+}
+.buttonElegir{
+    width: 100px;
+    height: 40px;
+    margin-top: 50px;
+    justify-self: center;
+    color: white;
+    font-size: 18px;
+    background-color: grey;
+    border-radius: 10px;
+}
+.buttonElegir:hover{
+    cursor: pointer;
+    background-color:rgb(67, 142, 255);
+    box-shadow: 5px 5px 10px 5px;   
+}
+
+.seccion-ataque{
+    width: 600px;
+    height: 300px;
+    margin: 12px auto;
+    text-align: center;
+}
+.button-ataque{
+    width: 100px;
+    height: 40px;
+    margin: 15px;
+    justify-self: center;
+    color: white;
+    font-size: 18px;
+    background-color: grey;
+    border-radius: 10px;
+}
+.button-ataque:hover{
+    cursor: pointer;
+    background-color:rgb(67, 142, 255);
+    
+}
+.ataque-info{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    
+}
+
+.ataque--info-jugador, .ataque--info-contrario{
+    width: 50%;
+    height: auto;
+    margin: 0;
+}
+
+.mascota-ataque{
+    width: 120px;
+    margin-top: 5px;
+    
+}
+
+.info-vidas{
+    color:rgb(7, 1, 88);
+    font-size: 24px;
+}
+#resultado{
+    flex-direction: column;
+    text-align: center;
+
+}
+.resultado-ataques{
+    display: flex;
+    justify-content: space-around;
+}
+.resultado-ataques p{
+    color:rgb(7, 1, 88);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mensaje--final-reiniciar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 254px;
+    left: 15%;
+    width: 70%;
+    height: 30%;
+    background-color: #22577E;
+    box-shadow:  5px 5px 15px; 
+    border-radius: 20px;
+    color: white; 
+    
+}
+
+@media (max-width: 620px){
+    .mascota-container{
+        flex-direction: column;
+    }
+}
